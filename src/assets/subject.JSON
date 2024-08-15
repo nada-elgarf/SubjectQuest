@@ -1,0 +1,32 @@
+{
+  "subjects": [
+    {
+      "name": "اسم المادة",
+      "description": "يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات يتفاعل الطلاب مع",
+      "status": "مكتمل",
+      "imageSrc": "./../../assets/img/75b1b7c6823e8518f7bdfe00413bd594.jfif",
+      "isComplete": true
+    },
+    {
+      "name": "اسم المادة",
+      "description": "يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات يتفاعل الطلاب مع",
+      "status": "غير مكتمل",
+      "imageSrc": "./../../assets/img/75b1b7c6823e8518f7bdfe00413bd594.jfif",
+      "isComplete": false
+    },
+    {
+      "name": "اسم المادة",
+      "description": "يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات يتفاعل الطلاب مع",
+      "status": "مكتمل",
+      "imageSrc": "./../../assets/img/75b1b7c6823e8518f7bdfe00413bd594.jfif",
+      "isComplete": true
+    },
+    {
+      "name": "اسم المادة",
+      "description": "يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات يتفاعل الطلاب مع",
+      "status": "غير مكتمل",
+      "imageSrc": "./../../assets/img/75b1b7c6823e8518f7bdfe00413bd594.jfif",
+      "isComplete": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<div class="head">
+  <h2>المواد</h2>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let subject of subjects">
+      <div class="card">
+        <div class="box">
+          <img [src]="subject.imageSrc">
+          <div class="info">
+            <h3>{{ subject.name }}</h3>
+            <p>{{ subject.description }}</p>
+            <h4 *ngIf="subject.isComplete == true">الحالة: <span>{{ subject.status }}</span></h4>
+            <h4 *ngIf="subject.isComplete == false">الحالة: <span class="not">{{ subject.status }}</span></h4>
+            <button routerLink="/form">اضافة تمرين<i class="fa-solid fa-arrow-left-long"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+.head {
+  background-color: rgba(255, 212, 236, 1);
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+.icons {
+  display: flex;
+  position: relative;
+}
+
+.icons .icon {
+  margin: 10px;
+  padding: 10px;
+}
+
+.icons .icon span {
+  padding: 0 15px;
+  font-size: 25px;
+}
+
+.icons .icon .bell::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: red;
+  border-radius: 50%;
+  top: 28px;
+}
+
+.avatar {
+  display: flex;
+  padding: 5px 10px;
+}
+
+.avatar img {
+  width: 60px;
+}
+
+.avatar .img {
+  background-color: rgba(234, 157, 246, 1);
+  width: 60px;
+  border-radius: 50%;
+  text-align: center;
+  height: 59px;
+}
+
+.avatar .info {
+  padding: 10px;
+}
+
+.avatar .down {
+  margin-top: 30px;
+}
+
+@media (min-width:320px) and (max-width: 769px) {
+  .head {
+    padding: 7px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search {
+    margin-top: 10px;
+  }
+
+  .search h3 {
+    font-size: 17px;
+  }
+
+  .icons {
+    flex-direction: column;
+  }
+
+  .icons .icon {
+    padding: 0;
+    margin: 0;
+  }
+
+  .icons .icon span {
+    font-size: 10px;
+  }
+
+  .icons .icon .bell::before {
+    top: 8px;
+  }
+
+  .avatar img {
+    width: 30px;
+  }
+
+  .avatar .img {
+    width: 35px;
+    height: 25px;
+  }
+
+  .avatar .info {
+    padding: 0 5px;
+    margin: 0;
+  }
+
+  .avatar .info h4, .avatar .info span {
+    font-size: 8px;
+    margin: 0;
+  }
+
+  .avatar .down {
+    margin-top: 5px;
+    font-size: 10px;
+  }
+}

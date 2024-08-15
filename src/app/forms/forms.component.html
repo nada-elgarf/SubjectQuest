@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row flex">
+    <div class="col-md-2">
+      <div class="box mt-4">
+        <ul (dragover)="allowDrop($event)">
+          <li>اسحب نوع السؤال<i class="fa-regular fa-hand"></i></li>
+          <li draggable="true" (dragstart)="dragStart($event)">اختيار من متعدد</li>
+          <li draggable="true" (dragstart)="dragStart($event)">اختيار فردي</li>
+          <li draggable="true" (dragstart)="dragStart($event)">نص</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-10 mt-4">
+      <form [formGroup]="myForm">
+        <div class="mb-4">
+          <input type="text" class="form-control drag" id="" placeholder="قم بسحب و ادراج نوع السؤال هنا .."
+            formControlName="inputText">
+        </div>
+      </form>
+
+      <!-- Single Choice Form -->
+      <form [formGroup]="myFormSingleChoise" (ngSubmit)="onSubmitSingleChoice()">
+        <div class="card mb-4" *ngIf="isSingleChoise">
+          <h4>اختيار فردي</h4>
+          <div class="mb-3 px-3">
+            <input type="text" class="form-control chosse" id="questionTextSingle" placeholder="نص السؤال,,,"
+              formControlName="questionText">
+          </div>
+
+          <div>
+            <div class="radios m-3">
+              <span class="radio">
+                <button class="btn" (click)="addNewInputSingle()">+ اختيار جديد</button>
+                <input type="radio" value="easy" id="easy" name="difficultyMultiple">
+                <label for="easy">سهل</label>
+                <input type="radio" value="average" id="average" name="difficultyMultiple">
+                <label for="average">متوسط</label>
+                <input type="radio" value="difficult" id="difficult" name="difficultyMultiple">
+                <label for="difficult">صعب</label>
+              </span>
+            </div>
+            <div class="mb-4 m-3 chosse-1">
+              <input type="text" class="" id="choice2Multiple" placeholder="الاختيار الاول" formControlName="choice1">
+              <div class="info">
+                <input type="checkbox" formControlName="isCorrect1" name="isCorrectMultiple">
+                <label for="isCorrect1">تحديد كاجابة صحيحة</label>
+              </div>
+            </div>
+            <div formArrayName="addNewChoiceSingle">
+              <div *ngFor="let new of addNewChoiceSingle.controls; let i = index">
+                <div [formGroupName]="i" class="chosse-1">
+                  <input type="text" class="form-control" id="choice1Multiple" placeholder="اختيار اخر "
+                    formControlName="choice">
+                  <div class="info">
+                    <input type="checkbox" formControlName="isCorrect" name="isCorrectMultiple">
+                    <label for="chose">تحديد كاجابة صحيحة</label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="save">
+            <button class="btn">حفظ كمسودة</button>
+            <button class="delete">الغاء</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Multiple Choice Form -->
+      <form [formGroup]="myFormMultipleChoise" (ngSubmit)="onSubmitMultipleChoice()">
+        <div class="card mb-4" *ngIf="isMultipleChoise">
+          <h4>اختيار من متعدد</h4>
+          <div class="mb-3 px-3">
+            <input type="text" class="form-control chosse" id="questionTextMultiple" placeholder="نص السؤال,,,"
+              formControlName="questionText">
+          </div>
+
+
+          <div>
+            <div class="radios m-3">
+              <span class="radio">
+                <button class="btn" (click)="addNewInputMultiple()">+ اختيار جديد</button>
+                <input type="radio" value="easy" id="easy" name="difficultyMultiple">
+                <label for="easy">سهل</label>
+                <input type="radio" value="average" id="average" name="difficultyMultiple">
+                <label for="average">متوسط</label>
+                <input type="radio" value="difficult" id="difficult" name="difficultyMultiple">
+                <label for="difficult">صعب</label>
+              </span>
+            </div>
+            <div class="mb-4 m-3 chosse-1">
+              <input type="text" class="" id="choice2Multiple" placeholder="الاختيار الاول" formControlName="choice1">
+              <div class="info">
+                <input type="checkbox" formControlName="isCorrect1" name="isCorrectMultiple">
+                <label for="isCorrect1">تحديد كاجابة صحيحة</label>
+              </div>
+            </div>
+            <div formArrayName="addNewChoiceMultiple">
+              <div *ngFor="let new of addNewChoiceMultiple.controls; let i = index">
+                <div [formGroupName]="i" class="chosse-1">
+                  <input type="text" class="form-control" id="choice1Multiple" placeholder="اختيار اخر "
+                    formControlName="choice">
+                  <div class="info">
+                    <input type="checkbox" formControlName="isCorrect" name="isCorrectMultiple">
+                    <label for="chose">تحديد كاجابة صحيحة</label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="save">
+            <button class="btn">حفظ كمسودة</button>
+            <button class="delete">الغاء</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Text Form -->
+      <form [formGroup]="myFormText" (ngSubmit)="onSubmitText()">
+        <div class="card mb-4" *ngIf="isText">
+          <h4>نص</h4>
+          <div class="mb-3 px-3">
+            <input type="text" class="form-control chosse" id="questionText" placeholder="نص السؤال,,,"
+              formControlName="questionText">
+          </div>
+          <div class="radios m-3">
+            <button class="btn">+ اختيار جديد</button>
+            <span class="radio">
+              <input type="radio" value="easy" id="easy" name="difficultyText">
+              <label for="easy">سهل</label>
+              <input type="radio" value="average" id="average" name="difficultyText">
+              <label for="average">متوسط</label>
+              <input type="radio" value="difficult" id="difficult" name="difficultyText">
+              <label for="difficult">صعب</label>
+            </span>
+          </div>
+          <div class="save">
+            <button class="btn">حفظ كمسودة</button>
+            <button class="delete">الغاء</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
